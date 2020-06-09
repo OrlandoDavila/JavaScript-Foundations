@@ -47,7 +47,7 @@ let numerator = n1 * n2;
 let denominator = n1 - 1;
 let monthlyRate = n2 / denominator;
 
-let final = (monthlyRate * principal).toFixed(2);
+let final = (monthlyRate.toFixed(2) * principal).toFixed(2);
 
 console.log(final);
 
@@ -77,7 +77,10 @@ mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
     
 }*/
 
-function mortgageCalculator (principal, interestRate, years) {
+function mortgageCalculator (P, I, N) {
+    let principal = P;
+    let interestRate = I;
+    let years = N;
     return principal + interestRate + years;
 }
 console.log(mortgageCalculator(200000, 0.05, 30));
@@ -93,26 +96,27 @@ Then, add control flow within your function such that IF creditScore is above 74
 
 Hint: To drop an interest rate by 5% you can take monthlyRate and multiply it by 0.95. Similarly, to increase an interest rate by 5% you'd do monthlyRate * 1.05. 
 */
-
-let creditScore = '850';
+function mortgageCalculator (P, I, N, creditScore) {
 
 if(creditScore > 740){
-    console.log(intrestRate * 0.95);
+    console.log(monthlyRate * 0.95);
 }else if (creditScore < 600){
     console.log(monthlyRate * 1.05);
 }else if (creditScore === 660 || creditScore < 740 ){
     console.log('No change in interest rate.'); 
 }
+}
 
-
-
+mortgageCalculator (200000, 0.05, 30, 800);
 
 
 
 
 
 // 🏡 Task 6: Loops
-/* Write a new function called variableInterestRate. This function should be the same as mortgageCalculator, except it should console.log the monthly payment for 10 different interest rates at 0.5% increments plus or minus 2% from the inputted interest rate. Complete these calculations using a for loop.
+/* Write a new function called variableInterestRate. This function should be the same as mortgageCalculator, 
+except it should console.log the monthly payment for 10 different interest rates at 0.5% increments plus or minus 2% from the inputted interest rate. 
+Complete these calculations using a for loop.
 
 For example, variableInterestRate(200000, 0.04, 30) should console.log:
 
@@ -127,9 +131,18 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
-for (let variableInterestRate = 
+function variableInterestRate (P, I, N) {
 
 
+for (let i = I - 0.2; i < I + 0.2; i += 0.05){
+    let principal = P;
+    let interestRate = I;
+    let years = N;
+    console.log(`${name} your interest rate is ${monthlyRate}`);
+    
+}
+}
+variableInterestRate (200000, 0.05, 30)
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
